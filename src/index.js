@@ -1,9 +1,8 @@
 import './styles.css';
 import LoadButton from './JS/loadButton';
-import refs from './JS/refs';
-import apiService from './JS/apiService';
 import createMarkup from './JS/create-markup';
-// import { data } from 'autoprefixer';
+import apiService from './JS/apiService';
+import refs from './JS/refs';
 
 const loadingButton = new LoadButton('button[data-action="load-more"]');
 refs.searchForm.addEventListener('submit', searchSubmit);
