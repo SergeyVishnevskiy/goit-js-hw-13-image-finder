@@ -14,7 +14,7 @@ function openModal(event) {
     return;
   } else {
     const instance = basicLightbox.create(`
-        <img class="modal-img" src="${event.target.dataset.img}"/>`);
+        <img class="modal-img" src="${event.target.dataset.img}" alt="{{tags}}/>`);
     instance.show();
   }
 }
