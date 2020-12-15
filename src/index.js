@@ -3,6 +3,9 @@ import LoadButton from './js/loadButton';
 import createGellary from './js/create-gellary';
 import apiService from './js/apiService';
 import refs from './js/refs';
+import { notice } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css';
 
 const loadingButton = new LoadButton('button[data-action="load-more"]');
 refs.searchForm.addEventListener('submit', searchSubmit);
