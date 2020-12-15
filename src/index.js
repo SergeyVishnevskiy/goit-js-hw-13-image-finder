@@ -42,3 +42,4 @@ function scrollPage(height) {
 function clearGellary() {
   refs.gallery.innerHTML = '';
 }
+// TASK DONE
