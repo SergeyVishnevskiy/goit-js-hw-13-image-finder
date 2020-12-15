@@ -27,11 +27,15 @@ function updateGellary() {
     createGellary(image);
     loadingButton.show();
     loadingButton.enable();
+    scrollPage(window.pageYOffset);
+  });
+}
 
-    window.scrollTo({
-      top: document.documentElement.offsetHeight,
-      behavior: 'smooth',
-    });
+function scrollPage(height) {
+  const position = document.documentElement.offsetHeight;
+  window.scrollTo({
+    top: position - 920,
+    behavior: 'smooth',
   });
 }
 
