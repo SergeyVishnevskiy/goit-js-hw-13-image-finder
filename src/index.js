@@ -1,12 +1,12 @@
 import './styles.css';
-import LoadButton from './JS/loadButton';
-import createMarkup from './JS/create-markup';
-import apiService from './JS/apiService';
-import refs from './JS/refs';
+import LoadButton from './js/loadButton';
+import createGellary from './js/create-gellary';
+import apiService from './js/apiService';
+import refs from './js/refs';
 
 const loadingButton = new LoadButton('button[data-action="load-more"]');
 refs.searchForm.addEventListener('submit', searchSubmit);
-loadingButton.refs.button.addEventListener('click', nextLoadImg);
+loadingButton.refs.button.addEventListener('click', updateGellary);
 
 function searchSubmit(event) {
   event.preventDefault();
@@ -14,16 +14,17 @@ function searchSubmit(event) {
   const inputPlace = event.currentTarget;
   apiService.query = inputPlace.elements.query.value;
 
-  clearGallery();
   apiService.resetPage();
   inputPlace.reset();
-  nextLoadImg();
+  updateGellary();
+  clearGellary();
 }
-function nextLoadImg() {
+
+function updateGellary() {
   loadingButton.disable();
 
   apiService.fetchImages().then(image => {
-    createMarkup(image);
+    createGellary(image);
     loadingButton.show();
     loadingButton.enable();
 
@@ -33,6 +34,7 @@ function nextLoadImg() {
     });
   });
 }
-function clearGallery() {
+
+function clearGellary() {
   refs.gallery.innerHTML = '';
 }
